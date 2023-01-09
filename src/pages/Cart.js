@@ -35,6 +35,10 @@ const data = [
 ];
 
 const Cart = () => {
+  const handleIncrease = () => {};
+
+  const handleDecrease = () => {};
+
   return (
     <div className="cart-section container mx-auto py-10">
       <h2 className="section-title uppercase text-2xl font-bold space-font text-center mb-10">
@@ -84,13 +88,19 @@ const Cart = () => {
                     {currencyFormatter(product.price)}
                   </div>
                   <div className="counter flex">
-                    <button className="h-10 w-10 bg-gray-100  border border-gray-300 active:bg-gray-700 active:text-gray-50">
+                    <button
+                      onClick={() => handleDecrease()}
+                      className="h-10 w-10 bg-gray-100  border border-gray-300 active:bg-gray-700 active:text-gray-50"
+                    >
                       -
                     </button>
                     <span className="h-10 w-10 bg-gray-100 flex justify-center items-center border border-gray-300">
                       {product.cartQuantity}
                     </span>
-                    <button className="h-10 w-10 bg-gray-100 border border-gray-300 active:bg-gray-700 active:text-gray-50">
+                    <button
+                      onClick={() => handleIncrease()}
+                      className="h-10 w-10 bg-gray-100 border border-gray-300 active:bg-gray-700 active:text-gray-50"
+                    >
                       +
                     </button>
                   </div>
