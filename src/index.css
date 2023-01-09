@@ -50,7 +50,7 @@ body {
   background-size: cover;
 }
 
-/* .slide-btn {
+.slide-btn {
   position: relative;
 }
 
@@ -69,4 +69,4 @@ body {
 
 .slide-btn:hover::before {
   width: 100%;
-} */
+}
