@@ -4,7 +4,7 @@ import productReducer, {
   productsFetching,
 } from "../features/products/productSlice";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
     //multiple reducer goes here....
     products: productReducer,

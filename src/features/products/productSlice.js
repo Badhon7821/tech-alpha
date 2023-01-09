@@ -32,7 +32,7 @@ export const productsSlice = createSlice({
     });
 
     builder.addCase(productsFetching.rejected, (state, action) => {
-      state.status = "Something went wrong, please try agein...";
+      state.status = "Something went wrong, please try again...";
     });
   },
 });
