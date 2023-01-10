@@ -5,11 +5,15 @@ import {
   addToCart,
   clearCart,
   decreaseCart,
+  getSubtotal,
   removeFromCart,
 } from "../features/products/cartSlice";
+import { useEffect } from "react";
 
 const Cart = () => {
-  const { cartItems: data } = useSelector((state) => state.cart);
+  const { cartItems: data, cartTotalAmount: subtotal } = useSelector(
+    (state) => state.cart
+  );
   const dispatch = useDispatch();
 
   const handleRemove = (product) => {
@@ -26,6 +30,10 @@ const Cart = () => {
   const handleDecrease = (product) => {
     dispatch(decreaseCart(product));
   };
+
+  useEffect(() => {
+    dispatch(getSubtotal());
+  }, [data, dispatch]);
 
   return (
     <div className="cart-section container mx-auto py-10">
@@ -112,7 +120,9 @@ const Cart = () => {
             <div className="flex flex-col items-start gap-2">
               <div className="top flex justify-between w-full text-2xl font-medium">
                 <span className="text-sky-500">Subtotal</span>
-                <span className="text-rose-500"></span>
+                <span className="text-rose-500">
+                  {currencyFormatter(subtotal)}
+                </span>
               </div>
               <p className="text-gray-400">
                 Taxes and shipping costs are calculated at the checkout
